@@ -76,7 +76,7 @@ npm install
 ```bash
 npm run dev
 ```
-启动开发服务器，访问 `http://localhost:3000`
+启动开发服务器，访问 `http://localhost:5173`
 
 ### 生产构建
 ```bash
