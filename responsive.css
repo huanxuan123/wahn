@@ -1,0 +1,249 @@
+/* 响应式设计 */
+
+/* ===== 桌面端 (Desktop) ===== */
+/* 默认样式就是桌面端 */
+
+/* ===== 大屏幕平板 (Large Tablet) ===== */
+@media (max-width: 1200px) {
+  html {
+    font-size: 15px;
+  }
+
+  .container {
+    max-width: 960px;
+  }
+}
+
+/* ===== 平板 (Tablet) ===== */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+
+  /* 容器调整 */
+  .container {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  /* 标题大小调整 */
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+  h4 { font-size: 1.1rem; }
+
+  /* 网格调整 */
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+    gap: 1rem !important;
+  }
+
+  /* 两列网格变为单列 */
+  .grid-2 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* 按钮和链接增大点击区域 */
+  button, a {
+    min-height: 44px;
+    padding: 0.75rem;
+  }
+
+  /* 减少外边距 */
+  main {
+    padding: 1.5rem 1rem;
+  }
+
+  /* 导航栏调整 */
+  nav {
+    flex-wrap: wrap;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+/* ===== 手机 (Mobile) ===== */
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
+
+  /* 标题大小 */
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.25rem; }
+  h3 { font-size: 1rem; }
+
+  /* 减少间距 */
+  body {
+    line-height: 1.5;
+  }
+
+  p {
+    margin-bottom: 0.75rem;
+  }
+
+  /* 容器 */
+  main {
+    padding: 1rem 0.75rem;
+  }
+
+  /* 卡片调整 */
+  .card {
+    padding: 1rem;
+  }
+
+  /* 网格为单列 */
+  .grid,
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  /* 隐藏某些元素 */
+  .hidden-mobile {
+    display: none;
+  }
+
+  /* 表格适配 */
+  table {
+    font-size: 0.85rem;
+  }
+
+  th, td {
+    padding: 0.5rem;
+  }
+
+  /* 减少按钮大小 */
+  button, .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  /* 表单元素全宽 */
+  input,
+  textarea,
+  select,
+  .form-control {
+    width: 100%;
+  }
+
+  /* 减少列表缩进 */
+  ul, ol {
+    padding-left: 1.5rem;
+  }
+
+  /* 浮动元素调整 */
+  .float-left,
+  .float-right {
+    float: none;
+    margin-bottom: 1rem;
+  }
+
+  /* 侧边栏 */
+  .sidebar {
+    display: none;
+  }
+
+  .content {
+    width: 100%;
+  }
+
+  /* 显示移动导航 */
+  .show-mobile {
+    display: block;
+  }
+}
+
+/* ===== 超小屏幕 (Extra Small) ===== */
+@media (max-width: 360px) {
+  html {
+    font-size: 12px;
+  }
+
+  h1 { font-size: 1.25rem; }
+  h2 { font-size: 1rem; }
+
+  main {
+    padding: 0.75rem;
+  }
+
+  .card {
+    padding: 0.75rem;
+  }
+
+  button, .btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* ===== 打印样式 ===== */
+@media print {
+  * {
+    background: white;
+    color: black;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  button, .btn {
+    display: none;
+  }
+
+  main {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .no-print {
+    display: none;
+  }
+}
+
+/* ===== 高对比度模式 ===== */
+@media (prefers-contrast: more) {
+  :root {
+    --text-primary: #000;
+    --text-secondary: #333;
+    --bg-primary: #fff;
+  }
+
+  [data-theme="dark"] {
+    --text-primary: #fff;
+    --text-secondary: #ccc;
+    --bg-primary: #000;
+  }
+}
+
+/* ===== 减少动画 ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===== 深色模式系统偏好 ===== */
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) {
+    color-scheme: dark;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  html:not([data-theme]) {
+    color-scheme: light;
+  }
+}
